@@ -7,8 +7,13 @@ module.exports = function (app, shopData) {
       if (err) {
         res.redirect("./");
       }
-      res.send(result);
+      //res.send(result);
+      //updated code
+      let newData = Object.assign({}, shopData, { availableBooks: result });
+      console.log(newData);
+      res.render("list.ejs", newData);
     });
+    //the updated code now creates a new object call newData by merging the shop data object with the result object
   });
 
   app.get("/", function (req, res) {
