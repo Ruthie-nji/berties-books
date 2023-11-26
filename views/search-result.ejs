@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to <%=shopName%></title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <!--  this checks whether there are any books in the avilabebooks array and displays a message accordingly -->
+    <h1>Search Result <%=shopName%></h1>
+    <% if (availableBooks && availableBooks.length >0){%>
+    <h2>Found books:</h2>
+    <ul>
+      <% availableBooks.forEach(book => {%>
+      <li><%= book.name%>, <%= book.price %></li>
+      <%});%>
+    </ul>
+    <% } else {%>
+    <p>no books found with the provided keyword.</p>
+    <% }%>
+  </body>
+</html>
